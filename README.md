@@ -16,19 +16,20 @@ This is a stripped down version of [mathieudutour/github-tag-action](https://git
 ## Example
 
 ```yaml
-name: Bump version
+name: CD
 on:
   push:
     branches:
-      - master
+      - main
+ 
 jobs:
-  Bump-Tag-and-release:
+  New-release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Bump and tag
+      - uses: actions/checkout@v3
+      - name: Bump-n-tag
         id: tag_version
-        uses: mathieudutour/github-tag-action@v6.1
+        uses: epignatelli/bump-n-tag@v6.1
       - name: Release
         uses: ncipollo/release-action@v1
         with:
